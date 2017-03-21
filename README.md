@@ -10,13 +10,13 @@
 
 >echo "# CommandLine" >> README.md
 >
-git init
+>git init
 >
 >git add README.md
 >
-git commit -m "first commit"
-
+>git commit -m "first commit"
+>
 >git remote add origin https://github.com/username/
 RepoName.git
-
+>
 >git push -u origin master
