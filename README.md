@@ -20,3 +20,47 @@
 RepoName.git
 >
 >git push -u origin master
+
+
+---
+
+设置两个git账号：
+
+>cd /Users/{accountname}/.ssh
+
+生成ssh key
+>ssh-keygen -t rsa -C "xxx@xx.com"
+
+回车之后提示你生成的ssh key 的存储路径和名称，可以自己指定路径和名称
+>Generating public/private rsa key pair.
+>Enter file in which to save the key (/Users/{username}/.ssh/id_rsa):
+
+拷贝生成的公钥
+>pbcopy < ~/.ssh/id_rsa_work.pub
+
+执行ssh-agent让ssh识别新的私钥
+>ssh-add ~/.ssh/id_rsa_work
+
+创建配置文件
+>touch config
+
+配置文件内容
+>\#work Git
+>
+>Host workgit 
+>
+>HostName IP Address #域名也可
+>
+>User think
+>
+>IdentityFile ~/.ssh/id_rsa_work
+
+>\#myself Git
+>
+>Host myselfgit
+>
+>HostName IP Address #域名也可
+>
+>User think
+>
+>IdentityFile ~/.ssh/id_rsa_myself
